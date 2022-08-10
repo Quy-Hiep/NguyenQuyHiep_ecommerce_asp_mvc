@@ -1,6 +1,9 @@
-﻿@{
+﻿@model ecommerce.Models.HomeModel
+
+@{
     ViewBag.Title = "Home Page";
 }
+
 <div class="container">
     <!-- ========================= SECTION MAIN  ========================= -->
     <section class="section-main padding-y">
@@ -10,15 +13,14 @@
                 <div class="row">
                     <aside class="col-lg col-md-3 flex-lg-grow-0">
                         <nav class="nav-home-aside">
-                            <h6 class="title-category">MY MARKETS <i class="d-md-none icon fa fa-chevron-down"></i></h6>
+                            <h6 class="title-category">DANH MỤC CỦA BẠN <i class="d-md-none icon fa fa-chevron-down"></i></h6>
                             <ul class="menu-category">
-                                <li><a href="#">Fashion and clothes</a></li>
-                                <li><a href="#">Automobile and motors</a></li>
-                                <li><a href="#">Gardening and agriculture</a></li>
-                                <li><a href="#">Electronics and tech</a></li>
-                                <li><a href="#">Packaginf and printing</a></li>
-                                <li><a href="#">Home and kitchen</a></li>
-                                <li><a href="#">Digital goods</a></li>
+                                @foreach (var item in Model.ListCategory)
+                                {
+                                    <li><a href="#">@item.name</a></li>
+                                }
+
+
                                 <li class="has-submenu">
                                     <a href="#">More items</a>
                                     <ul class="submenu">
@@ -65,31 +67,20 @@
                     </div> <!-- col.// -->
                     <div class="col-md d-none d-lg-block flex-grow-1">
                         <aside class="special-home-right">
-                            <h6 class="bg-blue text-center text-white mb-0 p-2">Popular category</h6>
-
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Men clothing</h6>
-                                    <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
+                            <h6 class="bg-blue text-center text-white mb-0 p-2">Danh mục phổ biến</h6>
+                            @foreach (var item in Model.ListCategory.Take(3))
+                            {
+                                <div class="card-banner border-bottom">
+                                    <div class="py-3" style="width:80%">
+                                        <h6 class="card-title">@item.name</h6>
+                                        <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
+                                    </div>
+                                    <img src="~/Content/images/items/@item.Avartar" height="80" class="img-bg">
                                 </div>
-                                <img src="~/Content/images/items/1.jpg" height="80" class="img-bg">
-                            </div>
+                            }
 
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Winter clothing </h6>
-                                    <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
-                                </div>
-                                <img src="~/Content/images/items/2.jpg" height="80" class="img-bg">
-                            </div>
 
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Home inventory</h6>
-                                    <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
-                                </div>
-                                <img src="~/Content/images/items/6.jpg" height="80" class="img-bg">
-                            </div>
+
 
                         </aside>
                     </div> <!-- col.// -->
@@ -105,72 +96,34 @@
         <div class="card card-deal">
             <div class="col-heading content-body">
                 <header class="section-heading">
-                    <h3 class="section-title">Deals and offers</h3>
+                    <h3 class="section-title">GIỜ VÀNG DEAL SỐC</h3>
                     <p>Hygiene equipments</p>
                 </header><!-- sect-heading -->
                 <div class="timer">
-                    <div> <span class="num">04</span> <small>Days</small></div>
-                    <div> <span class="num">12</span> <small>Hours</small></div>
-                    <div> <span class="num">58</span> <small>Min</small></div>
-                    <div> <span class="num">02</span> <small>Sec</small></div>
+                    <div> <span class="num">04</span> <small>Ngày</small></div>
+                    <div> <span class="num">12</span> <small>Giờ</small></div>
+                    <div> <span class="num">58</span> <small>Phút</small></div>
+                    <div> <span class="num">02</span> <small>giây</small></div>
                 </div>
             </div> <!-- col.// -->
             <div class="row no-gutters items-wrap">
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/3.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">Summer clothes</a>
-                            <span class="badge badge-danger"> -20% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/4.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">Some category</a>
-                            <span class="badge badge-danger"> -5% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/5.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">Another category</a>
-                            <span class="badge badge-danger"> -20% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/6.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">Home apparel</a>
-                            <span class="badge badge-danger"> -15% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/7.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title text-truncate">Smart watches</a>
-                            <span class="badge badge-danger"> -10% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
+                @foreach (var item in Model.ListProduct.Take(4))
+                {
+                    <div class="col-md col-6">
+                        <figure class="card-product-grid card-sm">
+                            <a href="#" class="img-wrap">
+
+                                <img src="~/Content/images/items/@item.Avartar">
+                            </a>
+                            <div class="text-wrap p-3">
+                                <a href="#" class="title">@item.Name</a>
+                                <span class="badge badge-danger"> -20% </span>
+                            </div>
+                        </figure>
+                    </div> <!-- col.// -->
+                }
+
+
             </div>
         </div>
 
@@ -179,7 +132,7 @@
     <!-- =============== SECTION 1 =============== -->
     <section class="padding-bottom">
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Apparel</h4>
+            <h4 class="title-section text-uppercase">ĐIỆN THOẠI NỔI BẬT NHẤT</h4>
         </header>
 
         <div class="card card-home-category">
@@ -190,85 +143,26 @@
                         <h5 class="title">Best trending clothes only for summer</h5>
                         <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                         <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
-                        <img src="~/Content/images/items/2.jpg" class="img-bg">
+                        <img src="~/Content/images/items/phone.jpg" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Well made women clothes with trending collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/1.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Great clothes with trending collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/2.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Beijing, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Demo clothes with sample collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/3.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/4.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/5.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> London, Britain</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/6.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Well made clothes with trending collection </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/7.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
+                        @foreach (var item in Model.ListProduct.Take(8))
+                        {
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="#" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">@item.Name </h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avartar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Well made women clothes with trending collection </p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
 
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen interior  stuff collection   </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/6.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
+
                     </ul>
                 </div> <!-- col.// -->
             </div> <!-- row.// -->
@@ -278,7 +172,7 @@
     <!-- =============== SECTION 2 =============== -->
     <section class="padding-bottom">
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Electronics</h4>
+            <h4 class="title-section text-uppercase">LAPTOP</h4>
         </header>
 
         <div class="card card-home-category">
@@ -289,85 +183,24 @@
                         <h5 class="title">Machinery items for manufacturers</h5>
                         <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                         <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
-                        <img src="~/Content/images/items/14.jpg" class="img-bg">
+                        <img src="~/Content/images/items/laptop.jpg" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Well made electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/7.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Another demo text for item stuff goes here  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/8.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/9.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Group of electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/10.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/11.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/12.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/1.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/2.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
+                        @foreach (var item in Model.ListProduct.Take(8))
+                        {
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="#" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">@item.Name </h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avartar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Well made women clothes with trending collection </p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div> <!-- col.// -->
             </div> <!-- row.// -->
@@ -441,118 +274,27 @@
     <section class="padding-bottom-sm">
 
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Recommended items</h4>
+            <h4 class="title-section text-uppercase">DÀNH RIÊNG CHO BẠN</h4>
         </header>
 
         <div class="row row-sm">
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/1.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/2.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Some item name here</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/3.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Great product name here</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Some item name here</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Great product name here</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/9.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Just another product name</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Some item name here</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">Great product name here</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
+            @foreach (var item in Model.ListProduct.Take(12))
+            {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div class="card card-sm card-product-grid">
+                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.Avartar"> </a>
+                        <figcaption class="info-wrap">
+                            <a href="#" class="title">@item.Name</a>
+                            <div class="price mt-1">@item.Price đ </div> <!-- price-wrap.// -->
+
+      </figcaption>
+
+  </div>
+
+</div> <!-- col.// -->
+            }
+
+
         </div> <!-- row.// -->
     </section>
     <!-- =============== SECTION ITEMS .//END =============== -->
