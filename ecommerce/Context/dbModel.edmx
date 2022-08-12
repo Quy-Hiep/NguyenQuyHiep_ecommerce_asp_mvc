@@ -24,7 +24,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Avartar" Type="nvarchar" MaxLength="100" />
           <Property Name="Slug" Type="nvarchar" MaxLength="100" />
           <Property Name="ShowOnHomePage" Type="bit" />
@@ -32,6 +32,7 @@
           <Property Name="Deleted" Type="bit" />
           <Property Name="CreateOnUtc" Type="datetime" />
           <Property Name="UpdatedOnUtc" Type="datetime" />
+          <Property Name="Parent_Id" Type="int" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -109,7 +110,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Avartar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ShowOnHomePage" Type="Boolean" />
@@ -117,6 +118,7 @@
           <Property Name="Deleted" Type="Boolean" />
           <Property Name="CreateOnUtc" Type="DateTime" Precision="3" />
           <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="Parent_Id" Type="Int32" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -195,7 +197,7 @@
             <EntityTypeMapping TypeName="ecomerce_asp_mvcModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Avartar" ColumnName="Avartar" />
                 <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
@@ -203,6 +205,7 @@
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="CreateOnUtc" ColumnName="CreateOnUtc" />
                 <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
+                <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

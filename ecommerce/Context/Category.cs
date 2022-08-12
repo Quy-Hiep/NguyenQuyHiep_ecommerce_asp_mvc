@@ -15,7 +15,7 @@ namespace ecommerce.Context
     public partial class Category
     {
         public int Id { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
         public string Avartar { get; set; }
         public string Slug { get; set; }
         public Nullable<bool> ShowOnHomePage { get; set; }
@@ -23,5 +23,6 @@ namespace ecommerce.Context
         public Nullable<bool> Deleted { get; set; }
         public Nullable<System.DateTime> CreateOnUtc { get; set; }
         public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
+        public Nullable<int> Parent_Id { get; set; }
     }
 }
