@@ -167,6 +167,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2067,21 +2068,11 @@
     <Content Include="Content\images\banners\banner-item1.jpg" />
     <Content Include="Content\images\banners\banner-item2.jpg" />
     <Content Include="Content\images\banners\banner-item3.jpg" />
-    <Content Include="Content\images\banners\banner1.jpg" />
-    <Content Include="Content\images\banners\banner2.jpg" />
-    <Content Include="Content\images\banners\banner3.jpg" />
-    <Content Include="Content\images\banners\banner4.jpg" />
-    <Content Include="Content\images\banners\banner5.jpg" />
-    <Content Include="Content\images\banners\banner6.jpg" />
-    <Content Include="Content\images\banners\banner7.jpg" />
-    <Content Include="Content\images\banners\banner8.jpg" />
-    <Content Include="Content\images\banners\banner9.jpg" />
-    <Content Include="Content\images\banners\slide-lg-1.jpg" />
-    <Content Include="Content\images\banners\slide-lg-2.jpg" />
-    <Content Include="Content\images\banners\slide-lg-3.jpg" />
-    <Content Include="Content\images\banners\slide1.jpg" />
-    <Content Include="Content\images\banners\slide2.jpg" />
-    <Content Include="Content\images\banners\slide3.jpg" />
+    <Content Include="Content\images\banners\oneplus 10T.png" />
+    <Content Include="Content\images\banners\slide1.png" />
+    <Content Include="Content\images\banners\slide2.png" />
+    <Content Include="Content\images\banners\slide3.png" />
+    <Content Include="Content\images\banners\slide4.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\icons\flags\AU%402x.png" />
     <Content Include="Content\images\icons\flags\AU.png" />
@@ -2125,12 +2116,25 @@
     <Content Include="Content\images\items\7.jpg" />
     <Content Include="Content\images\items\8.jpg" />
     <Content Include="Content\images\items\9.jpg" />
+    <Content Include="Content\images\items\galaxy-s10.jpg" />
+    <Content Include="Content\images\items\galaxy-s10e.jpg" />
+    <Content Include="Content\images\items\galaxy-s20.jpg" />
+    <Content Include="Content\images\items\galaxy-s21.jpg" />
     <Content Include="Content\images\items\Galaxy-S22-Ultra.jpg" />
-    <Content Include="Content\images\items\iphone-13-pro-max-256gb.jpg" />
+    <Content Include="Content\images\items\iphone-11.jpg" />
+    <Content Include="Content\images\items\iphone-12-pro.jpg" />
+    <Content Include="Content\images\items\iphone-12.jpg" />
+    <Content Include="Content\images\items\iphone-13-mini.jpg" />
+    <Content Include="Content\images\items\iphone-13-pro-max.jpg" />
+    <Content Include="Content\images\items\iphone-13-pro.jpg" />
+    <Content Include="Content\images\items\iphone-13.jpg" />
     <Content Include="Content\images\items\laptop.jpg" />
     <Content Include="Content\images\items\phone.jpg" />
+    <Content Include="Content\images\items\phu-kien.jpg" />
+    <Content Include="Content\images\items\redmi-note-11.jpg" />
     <Content Include="Content\images\items\tablet.jpg" />
     <Content Include="Content\images\items\Xiaomi-12-Pro.jpg" />
+    <Content Include="Content\images\items\xiaomi-12.jpg" />
     <Content Include="Content\images\logo-white.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo.svg" />
@@ -2323,6 +2327,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\ProductCategory.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
