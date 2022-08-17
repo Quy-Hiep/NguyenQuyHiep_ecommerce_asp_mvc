@@ -69,6 +69,7 @@ namespace ecommerce.Controllers
             return byte2String;
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View();

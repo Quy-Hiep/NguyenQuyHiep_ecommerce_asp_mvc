@@ -70,7 +70,16 @@
                                         <i class="fa fa-user"></i>
                                         <span class="notify">3</span>
                                     </div>
-                                    <small class="text"> My profile </small>
+                                    @if (Session["idUser"] != null)
+                                    {
+                                        <a href="">đã đăng nhập</a>
+                                        <a href="~/Home/Logout" class="fa fa-sign-out-alt" aria-hidden="true" style="font-size:20px"></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/Register">Đăng nhập</a>
+                                    }
+                                    @*<small class="text"> My profile </small>*@
                                 </a>
                             </div>
                             <div class="widget-header mr-3">

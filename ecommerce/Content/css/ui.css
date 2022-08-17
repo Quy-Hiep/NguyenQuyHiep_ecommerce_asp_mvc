@@ -464,11 +464,12 @@ p:last-child {
     display: inline-block;
     width: 36px;
     height: 30px;
-    color: #969696; }
+    color: #969696;}
     .widget-header .icon-area .notify {
-      position: absolute;
-      top: 0px;
-      right: 8%; }
+        position: absolute;
+        top: 0px;
+        right: 8%;
+    }
   .widget-header .icon {
     color: #969696; }
     .widget-header .icon .notify {
