@@ -10,20 +10,20 @@
     <!-- ============================ COMPONENT REGISTER   ================================= -->
     <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
         <article class="card-body">
-            <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
+            <header class="mb-4"><h4 class="card-title">Đăng kí</h4></header>
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-row">
                     <div class="col form-group">
-                        <label>First name</label>
+                        <label>Tên</label>
                         @*<input type="text" class="form-control" placeholder="">*@
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div> <!-- form-group end.// -->
                     <div class="col form-group">
-                        <label>Last name</label>
+                        <label>Họ</label>
                         @*<input type="text" class="form-control" placeholder="">*@
                         @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
                     @*<input type="email" class="form-control" placeholder="">*@
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small class="form-text text-muted">Chúng tôi sẽ không chia sẻ email của bạn cho bất kì ai.</small>
                 </div> <!-- form-group end.// -->
 
 
@@ -53,7 +53,7 @@
                     </div> <!-- form-group end.// -->
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.IsAdmin, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <label>Là Admin</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.IsAdmin, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.IsAdmin, "", new { @class = "text-danger" })
@@ -63,13 +63,13 @@
                     <button type="submit" class="btn btn-primary btn-block"> Đăng kí  </button>
                 </div> <!-- form-group// -->
                 <div class="form-group">
-                    <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked=""> <div class="custom-control-label"> I am agree with <a href="#">terms and contitions</a>  </div> </label>
+                    <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked=""> <div class="custom-control-label"> Tôi đồng ý với <a href="#">các điều khoản và điều kiện</a>  </div> </label>
                 </div> <!-- form-group end.// -->
             }
 
         </article><!-- card-body.// -->
     </div> <!-- card .// -->
-    <p class="text-center mt-4">Have an account? <a href="~/Home/Login">Log In</a></p>
+    <p class="text-center mt-4">Đã có tài khoản? <a href="~/Home/Login">Đăng nhập</a></p>
     <br><br>
     <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
 

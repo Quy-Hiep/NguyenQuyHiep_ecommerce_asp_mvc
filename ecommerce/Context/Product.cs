@@ -32,5 +32,7 @@ namespace ecommerce.Context
         public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
         public Nullable<int> CreateUser { get; set; }
         public Nullable<int> UpdateUser { get; set; }
+        
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }
