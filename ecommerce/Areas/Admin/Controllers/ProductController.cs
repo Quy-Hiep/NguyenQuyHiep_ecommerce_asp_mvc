@@ -1,4 +1,5 @@
 ﻿using ecommerce.Context;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,10 +14,40 @@ namespace ecommerce.Areas.Admin.Controllers
     {
         ecomerce_asp_mvcEntities objecomerce_Asp_MvcEntities = new ecomerce_asp_mvcEntities();
         // GET: Admin/Product
-        public ActionResult Index()
+        //public ActionResult Index(string SearchString)
+        //{
+        //    //var lstProduct = objecomerce_Asp_MvcEntities.Products.ToList();
+        //    var lstProduct = objecomerce_Asp_MvcEntities.Products.Where(n=>n.Name.Contains(SearchString)).ToList();
+        //    return View(lstProduct);
+        //}
+        public ActionResult Index(string curentFilter, string SearchString, int? page)
         {
-            var lstProduct = objecomerce_Asp_MvcEntities.Products.ToList();
-            return View(lstProduct);
+            var lstProduct = new List<Product>();
+            if (SearchString !=null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = curentFilter;
+            }
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                //lay danh sach san pham theo tu khoa tim kiem
+                lstProduct = objecomerce_Asp_MvcEntities.Products.Where(n=>n.Name.Contains(SearchString)).ToList();
+
+            }
+            else
+            {
+                //lay all san pham
+                lstProduct = objecomerce_Asp_MvcEntities.Products.ToList();
+            }
+            ViewBag.CurrenFiler = SearchString;
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            //sap xep theo id san pham. san pham moi dua len dau
+            lstProduct = lstProduct.OrderByDescending(n => n.Id).ToList();
+            return View(lstProduct.ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
         public ActionResult Create()

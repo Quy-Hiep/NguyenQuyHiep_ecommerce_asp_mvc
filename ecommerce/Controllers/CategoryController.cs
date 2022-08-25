@@ -23,6 +23,7 @@ namespace ecommerce.Controllers
             CategoryModel objCategoryModel = new CategoryModel();
             objCategoryModel.ListProduct = objecomerce_Asp_MvcEntities.Products.Where(n => n.CategoryId == Id).ToList();
             objCategoryModel.ListCategory = objecomerce_Asp_MvcEntities.Categories.ToList();
+            objCategoryModel.ListBrand = objecomerce_Asp_MvcEntities.Brands.ToList();
             return View(objCategoryModel);
         }
     }

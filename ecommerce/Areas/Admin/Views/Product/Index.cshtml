@@ -1,4 +1,8 @@
-﻿@model IEnumerable<ecommerce.Context.Product>
+﻿@*@model IEnumerable<ecommerce.Context.Product>*@
+@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<ecommerce.Context.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -9,121 +13,137 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <p>
+        Tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Avartar)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Avartar)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ShortDes)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShortDes)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FullDescription)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().FullDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PriceDiscount)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().PriceDiscount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TypeId)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().TypeId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Slug)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Slug)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BrandId)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().BrandId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Deleted)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Deleted)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ShowOnHomePage)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShowOnHomePage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedOnUtc)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedOnUtc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UpdatedOnUtc)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UpdatedOnUtc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreateUser)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreateUser)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UpdateUser)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UpdateUser)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Avartar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriceDiscount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slug)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BrandId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowOnHomePage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DisplayOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedOnUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedOnUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateUser)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateUser)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="" class="img-wrap">
+
+                    <img src="~/Content/images/items/@item.Avartar" width="30px">
+                </a>
+                @*@Html.DisplayFor(modelItem => item.Avartar)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceDiscount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowOnHomePage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOnUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedOnUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateUser)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+Trang @(Model.PageCount< Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new {page, currentFiler = ViewBag.currentFilter}))
+
