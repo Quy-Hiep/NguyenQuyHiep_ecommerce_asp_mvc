@@ -12,7 +12,7 @@ namespace ecommerce.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class OderDetail
+    public partial class OrderDetail
     {
         public int Id { get; set; }
         public int OrderId { get; set; }
