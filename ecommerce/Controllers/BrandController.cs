@@ -1,5 +1,4 @@
 ﻿using ecommerce.Context;
-using ecommerce.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -9,19 +8,19 @@ using System.Web.Mvc;
 
 namespace ecommerce.Controllers
 {
-    public class CategoryController : Controller
+    public class BrandController : Controller
     {
         ecomerce_asp_mvcEntities objecomerce_Asp_MvcEntities = new ecomerce_asp_mvcEntities();
-        // GET: Category
+        // GET: Brand
         public ActionResult Index()
         {
-            var ListCategory = objecomerce_Asp_MvcEntities.Categories.ToList();
-            return View(ListCategory);
+            var ListBrand = objecomerce_Asp_MvcEntities.Categories.ToList();
+            return View(ListBrand);
         }
 
-        public ActionResult ProductCategory(int Id, int? page)
+        public ActionResult ProductBrand(int Id, int? page)
         {
-            var ListProduct = objecomerce_Asp_MvcEntities.Products.Where(n => n.CategoryId == Id).ToList();
+            var ListProduct = objecomerce_Asp_MvcEntities.Products.Where(n => n.BrandId == Id).ToList();
             var ListCategory = objecomerce_Asp_MvcEntities.Categories.ToList();
             var ListBrand = objecomerce_Asp_MvcEntities.Brands.ToList();
             var count = 0;//dùng để đếm tổng số sản phẩm
@@ -32,7 +31,7 @@ namespace ecommerce.Controllers
             ViewBag.Count = count;
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-           
+
             ViewBag.Category = ListCategory;
             ViewBag.Brand = ListBrand;
 

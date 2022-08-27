@@ -2,10 +2,10 @@
 @using PagedList;
 @using PagedList.Mvc;
 @model PagedList.IPagedList<ecommerce.Context.Product>
-
 @{
-    ViewBag.Title = "ProductCategory";
+    ViewBag.Title = "ProductBrand";
 }
+
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
@@ -63,7 +63,7 @@
                         </div> <!-- inner.// -->
                     </div>
                 </article> <!-- filter-group  .// -->
-                
+
             </aside> <!-- col.// -->
             <main class="col-md-10">
 
@@ -165,7 +165,7 @@
 
                 <nav class="mb-4" aria-label="Page navigation sample">
                     Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) của @Model.PageCount
-                    @Html.PagedListPager(Model, page => Url.Action("ProductCategory", new { page, currentFilter = ViewBag.CurrentFilter }))
+                    @Html.PagedListPager(Model, page => Url.Action("ProductBrand", new { page, currentFilter = ViewBag.CurrentFilter }))
                 </nav>
 
 
