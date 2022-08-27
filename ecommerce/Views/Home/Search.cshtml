@@ -1,10 +1,8 @@
-﻿@*@model ecommerce.Models.CategoryModel*@
-@using PagedList;
+﻿@using PagedList;
 @using PagedList.Mvc;
 @model PagedList.IPagedList<ecommerce.Context.Product>
-
 @{
-    ViewBag.Title = "ProductCategory";
+    ViewBag.Title = "Search";
 }
 
 <!-- ========================= SECTION CONTENT ========================= -->
@@ -35,9 +33,15 @@
                     <div class="filter-content collapse show" id="collapse_1">
                         <div class="inner">
                             <ul class="list-menu">
-                                @foreach (var item in ViewBag.Category)
+                                @{
+                                    string[] listCategory = new string[] { "Điện thoại", "Laptop", "Tablet", "Phụ kiện", "Âm thanh" };
+                                    int i = 1;
+                                }
+                                @foreach (var item in listCategory)
                                 {
-                                    <li><a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})">@item.Name  </a></li>
+
+                                    <li><a href="@Url.Action("ProductCategory", "Category")/@i">@item  </a></li>
+                                    i++;
                                 }
 
 
@@ -45,17 +49,22 @@
                         </div> <!-- inner.// -->
                     </div>
                 </article> <!-- filter-group  .// -->
-
                 <article class="filter-group">
                     <h6 class="title">
-                        <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">	Thương hiệu </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">	Danh mục </a>
                     </h6>
                     <div class="filter-content collapse show" id="collapse_1">
                         <div class="inner">
                             <ul class="list-menu">
-                                @foreach (var item in ViewBag.Brand)
+                                @{
+                                    string[] listBrand = new string[] { "Apple", "Samsung", "Xiaomi", "Oppo", "Vivo" };
+                                    int j = 1;
+                                }
+                                @foreach (var item in listBrand)
                                 {
-                                    <li><a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})">@item.Name  </a></li>
+
+                                    <li><a href="@Url.Action("ProductCategory", "Category")/@i">@item  </a></li>
+                                    i++;
                                 }
 
 
@@ -63,7 +72,7 @@
                         </div> <!-- inner.// -->
                     </div>
                 </article> <!-- filter-group  .// -->
-                
+
             </aside> <!-- col.// -->
             <main class="col-md-10">
 
@@ -158,16 +167,10 @@
                     </article> <!-- card-product .// -->
                 }
 
-
-
-
-
-
-                <nav class="mb-4" aria-label="Page navigation sample">
-                    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) của @Model.PageCount
-                    @Html.PagedListPager(Model, page => Url.Action("ProductCategory", new { page, currentFilter = ViewBag.CurrentFilter }))
-                </nav>
-
+            <nav class="mb-4" aria-label="Page navigation sample">
+                Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) của @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("Search", new { page, currentFilter = ViewBag.CurrentFilter }))
+            </nav>
 
                 <div class="box text-center">
                     <p>Did you find what you were looking for？</p>
@@ -183,27 +186,3 @@
     </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="padding-y-lg bg-light border-top">
-    <div class="container">
-
-        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-4 col-sm-6">
-                <form class="form-row">
-                    <div class="col-8">
-                        <input class="form-control" placeholder="Your Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text">We’ll never share your email address with a third-party. </small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

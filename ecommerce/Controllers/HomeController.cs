@@ -1,5 +1,6 @@
 ﻿using ecommerce.Context;
 using ecommerce.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,6 +111,35 @@ namespace ecommerce.Controllers
             return RedirectToAction("Login");
         }
 
+        public ActionResult Search(string currentFilter, string SearchString, int? page)
+        {
+            var lstProduct = new List<Product>();
+            if (SearchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = currentFilter;
+            }
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                //lấy danh sách sản phẩm theo từ khóa tìm kiếm
+                lstProduct = objecomerce_Asp_MvcEntities.Products.Where(n => /*n.Deleted == false &&*/ n.Name.Contains(SearchString)).ToList();
+            }
+            else
+            {
+                //lấy all sản phẩm trong bảng product
+                lstProduct = objecomerce_Asp_MvcEntities.Products/*.Where(n => n.Deleted == false)*/.ToList();
+            }
+            ViewBag.CurrentFilter = SearchString;
+            //số lượng item cua 1 trang
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            //sắp xếp theo id sản phẩm,sp mới đưa lên đầu
+            lstProduct = lstProduct.OrderByDescending(n => n.Id).ToList();
+            return View(lstProduct.ToPagedList(pageNumber, pageSize));
+        }
 
 
 
