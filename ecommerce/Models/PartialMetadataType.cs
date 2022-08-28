@@ -32,7 +32,6 @@ namespace ecommerce.Context
     [MetadataType(typeof(UserMasterData))]
     public partial class User
     {
-
     }
 
     [MetadataType(typeof(BrandMasterData))]
@@ -45,6 +44,8 @@ namespace ecommerce.Context
     [MetadataType(typeof(OrderMasterData))]
     public partial class Order
     {
-
+        public User UserInfo { get; set; }
     }
+  
+
 }

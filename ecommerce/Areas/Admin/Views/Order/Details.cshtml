@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ecommerce.Context.OrderDetail>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="content">
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="page__title">Danh sách Đơn hàng</h2>
+                        <hr />
+                        <div class="card">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>
+                                            Hình ảnh
+                                        </th>
+                                        <th>
+                                            Tên sản phẩm
+                                        </th>
+                                        <th>
+                                            Thành tiền
+                                        </th>
+                                        <th>
+                                            Số lượng
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @foreach (var productItem in ViewBag.productInfo)
+                                        {
+                                            if (item.ProductId == productItem.Id)
+                                            {
+                                                <td style="width: 18.33%">
+                                                    <img class="product_image" src="~/Content/images/items/@productItem.Avartar" />
+                                                </td>
+                                                <td>
+                                                    @productItem.Name
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var price = Convert.ToInt32(productItem.PriceDiscount);
+                                                        var quantity = Convert.ToInt32(item.Quantity);
+                                                        var total = price * quantity;
+                                                    }
+                                                    @String.Format("{0:#,0}", total) VND
+                                                </td>
+                                            }
+                                        }
+                                        <td>
+                                            @*@Html.DisplayFor(modelItem => item.Quantity)*@
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -89,6 +89,7 @@ namespace ecommerce.Areas.Admin.Controllers
                     Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
                     Session["Email"] = data.FirstOrDefault().Email;
                     Session["idUser"] = data.FirstOrDefault().Id;
+                    Session["isAdmin"] = data.FirstOrDefault().IsAdmin;
                     return RedirectToAction("Index");
                 }
                 else
