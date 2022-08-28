@@ -1,0 +1,48 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+.page_title {
+	padding: 40px 0 19px 0;
+	color: #343A40;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
+.product_image {
+	max-width: 60%;
+	min-width: 20%;
+}
+
+.popup {
+	position: fixed;
+	top: 61px;
+	right: 12px;
+}
+
+.bar {
+	display: flex;
+	max-height: 30px;
+	justify-content: center;
+	align-items: center;
+}
+
+#txtname {
+	height: 31px;
+	margin-right: 3px;
+}
+
+.text_search {
+	font-size: 13px;
+	width: 148px;
+}
+
+.grid-report-item {
+	padding: .2em .6em .3em;
+	border-radius: .25em;
+}
+
+	.grid-report-item.yellow {
+		background-color: #f39c12;
+		color: #fff;
+		font-size: 13px;
+	}

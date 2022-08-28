@@ -1,0 +1,63 @@
+﻿@model ecommerce.Context.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="page_title">Chi tiết Danh mục</h2>
+                    <hr />
+                    <div class="col">
+                        <a href="@Url.Action("Index", "Category")" class="btn btn-sm btn-success">
+                            <i class="fas fa-arrow-left"></i>  Về danh sách
+                        </a>
+                        <a style="float: right;" href="@Url.Action("Edit","Category",new { id = Model.Id })" class="btn btn-sm btn-info">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6 text-end">
+                            <img style="display: block; margin-left: auto; margin-right: auto;" class="product_image" src="~/Content/images/items/@Html.DisplayFor(model => model.Avartar)" />
+
+                            <div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <!--tiêu đề-->
+                                <div style="font-weight:bold" class="col">
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Avartar)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Slug)
+                                    </div>
+                                </div>
+                                <!--nội dung-->
+                                <div class="col">
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Name)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Avartar)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Slug)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </di

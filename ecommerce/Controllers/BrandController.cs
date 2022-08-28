@@ -1,4 +1,5 @@
 ﻿using ecommerce.Context;
+using ecommerce.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ecommerce.Controllers
         // GET: Brand
         public ActionResult Index()
         {
-            var ListBrand = objecomerce_Asp_MvcEntities.Categories.ToList();
+            var ListBrand = objecomerce_Asp_MvcEntities.Brands.ToList();
             return View(ListBrand);
         }
 

@@ -1,0 +1,45 @@
+﻿@model ecommerce.Context.Brand
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="page_title">Bạn có chắc chắn muốn xóa thương hiệu này?</h3>
+                    <hr />
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Avatar)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Avatar)
+                            </dd>
+                        </dl>
+
+                        @using (Html.BeginForm("Delete", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Xóa" class="btn btn-danger" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>

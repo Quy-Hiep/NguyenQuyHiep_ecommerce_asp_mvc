@@ -1,7 +1,9 @@
 ﻿
+
 @{
     ViewBag.Title = "Index";
 }
+
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
@@ -14,10 +16,10 @@
 
                     <div class="card card-category">
                         <div class="img-wrap" style="background: #ffd7d7">
-                            <img src="~/Content/images/items/@item.Avartar">
+                            <img src="~/Content/images/items/@item.Avatar">
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="@Url.Action("ProductBrand", "Brand", new {Id = item.Id})">@item.Name</a></h4>
+                            <h4 class="card-title"><a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})">@item.Name</a></h4>
                             <ul class="list-menu">
                                 <li><a href="">Unisex T shirts</a></li>
                                 <li><a href="">Casual shirts</a></li>

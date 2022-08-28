@@ -1,0 +1,52 @@
+﻿@model ecommerce.Context.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="page_title">Bạn có chắc chắn muốn xóa danh mục này?</h3>
+                    <hr />
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                <label>Họ và tên</label>
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.FirstName + model.LastName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.IsAdmin)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.IsAdmin)
+                            </dd>
+                        </dl>
+
+                        @using (Html.BeginForm("Delete", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Xóa" class="btn btn-danger" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>

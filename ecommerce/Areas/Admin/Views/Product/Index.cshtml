@@ -7,143 +7,120 @@
 @{
     ViewBag.Title = "Index";
 }
+<div id="content">
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="page_title">Quản Lý Sản phẩm</h2>
+                        <hr />
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="col-xl-6 col-lg-5 col-md-6">
+                                
+                                <form action="#" class="search-header">
+                                    <div class="input-group w-100">
+                                        <input type="text" name="SearchString" class="form-control" placeholder="Bạn cần tìm gì?">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="fa fa-search"></i> Tìm kiếm
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form> <!-- search-wrap .end// -->
+                            </div> <!-- col.// -->
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-{
-    <p>
-        Tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Tìm kiếm" />
-    </p>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Avartar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ShortDes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().FullDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().PriceDiscount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().TypeId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Slug)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().BrandId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Deleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().ShowOnHomePage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedOnUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().UpdatedOnUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().CreateUser)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().UpdateUser)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a href="" class="img-wrap">
-
-                    <img src="~/Content/images/items/@item.Avartar" width="30px">
-                </a>
-                @*@Html.DisplayFor(modelItem => item.Avartar)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortDes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PriceDiscount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrandId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deleted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShowOnHomePage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisplayOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedOnUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedOnUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdateUser)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>
-
-Trang @(Model.PageCount< Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new {page, currentFiler = ViewBag.currentFilter}))
-
+                            <div style="display: flex; justify-content: flex-start; align-items: center;">
+                                <button class="btn btn-success" style="margin-bottom: 10px; margin-top: 10px; margin-right:3px;">
+                                    <a href=" @Url.Action("Create")" style="color: #fff;"><i class="fas fa-plus"></i>&nbsp; Thêm</a>
+                                </button>
+                                <button class="btn btn-danger" style="margin-bottom: 10px; margin-top: 10px;">
+                                    <a href=" @Url.Action("Trash")" style="color: #fff;"><i class="far fa-trash-alt"></i> &nbsp;Thùng rác</a>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card overflow-auto">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().Avartar)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().CategoryId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().PriceDiscount)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().TypeId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().Slug)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstOrDefault().BrandId)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td style="width: 18.33%">
+                                                <img class="product_image" src="~/Content/images/items/@Html.DisplayFor(modelItem => item.Avartar)" />
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CategoryId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Price)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PriceDiscount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TypeId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Slug)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BrandId)
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-warning" style="width: 42px;">
+                                                    <a href=" @Url.Action("Edit", new { id = item.Id })" style="color: #fff;"><i class="far fa-edit"></i></a>
+                                                </button>
+                                                <button class="btn btn-info" style="width: 42px;">
+                                                    <a href=" @Url.Action("Details", new { id = item.Id })" style="color: #fff;"><i class="fas fa-info-circle"></i></a>
+                                                </button>
+                                                <button class="btn btn-danger" style="width: 42px;">
+                                                    <a href=" @Url.Action("DeleteTrash", new { id = item.Id })" style="color: #fff;"><i class="far fa-trash-alt"></i></a>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trong @Model.PageCount
+                        <div id="contentPager">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

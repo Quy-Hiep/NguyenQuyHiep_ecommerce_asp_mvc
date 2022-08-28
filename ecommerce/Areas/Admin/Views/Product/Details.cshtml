@@ -4,151 +4,90 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="page_title">Chi tiết Sản phẩm</h2>
+                    <hr />
+                    <div class="col">
+                        <a href="@Url.Action("Index", "Product")" class="btn btn-sm btn-success">
+                            <i class="fas fa-arrow-left"></i>  Về danh sách
+                        </a>
+                        <a style="float: right;" href="@Url.Action("Edit","Product",new { id = Model.Id })" class="btn btn-sm btn-info">
+                            <i class="fas fa-edit"></i> Sửa
+                        </a>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6 text-end">
+                            <img style="display: block; margin-left: auto; margin-right: auto;" class="product_image" src="~/Content/images/items/@Html.DisplayFor(model => model.Avartar)" />
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Avartar)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Avartar)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShortDes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PriceDiscount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PriceDiscount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TypeId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TypeId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slug)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BrandId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BrandId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Deleted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Deleted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShowOnHomePage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ShowOnHomePage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DisplayOrder)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOnUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOnUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedOnUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedOnUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateUser)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreateUser)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateUser)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdateUser)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <!--tiêu đề-->
+                                <div style="font-weight:bold" class="col">
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Avartar)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.CategoryId)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.ShortDes)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Price)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.PriceDiscount)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.TypeId)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayNameFor(model => model.Slug)
+                                    </div>
+                                </div>
+                                <!--nội dung-->
+                                <div class="col">
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Name)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Avartar)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.CategoryId)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.ShortDes)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Price)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.PriceDiscount)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.TypeId)
+                                    </div>
+                                    <div class="row">
+                                        @Html.DisplayFor(model => model.Slug)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </di
