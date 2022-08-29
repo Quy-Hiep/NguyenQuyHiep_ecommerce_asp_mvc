@@ -25,6 +25,12 @@ namespace ecommerce.Areas.Admin.Controllers
         //}
         public ActionResult Index(string CurrentFilter, string SearchString, int? page)
         {
+            var strSession = Session["isAdmin"];
+            if (strSession == null)
+            {
+                return RedirectToAction("Login", "Home");
+
+            }
             var lstProduct = new List<Product>();
             if (SearchString !=null)
             {

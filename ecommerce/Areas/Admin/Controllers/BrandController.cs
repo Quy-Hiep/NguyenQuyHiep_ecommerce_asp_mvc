@@ -16,12 +16,12 @@ namespace ecommerce.Areas.Admin.Controllers
         ecomerce_asp_mvcEntities objecomerce_Asp_MvcEntities = new ecomerce_asp_mvcEntities();
         public ActionResult Index(string currentFilter, string SearchString, int? page)
         {
-            //var strSession = Session["isAdmin"];
-            //if (strSession == null)
-            //{
-            //    return RedirectToAction("LoginAdmin", "LoginAdmin");
+            var strSession = Session["isAdmin"];
+            if (strSession == null)
+            {
+                return RedirectToAction("Login", "Home");
 
-            //}
+            }
             var lstBrand = new List<Brand>();
             if (SearchString != null)
             {
