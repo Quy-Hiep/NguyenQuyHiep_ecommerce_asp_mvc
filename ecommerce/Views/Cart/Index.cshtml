@@ -32,11 +32,11 @@
         });
     return false;
     }
-    $(function () {
-        $("#removecart").click(function () {
+
+    function DeleteCart(Id) {
             var model = {};
             //lấy id sản phẩm
-            model.Id = $("#productid").val();
+             model.Id = Id;
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("Remove", "Cart")',
@@ -46,14 +46,14 @@
                 success: function () {
                     $('#CartCount').text(@Session["count"] - 1);
                     $("#product-" + model.Id).remove();
+                    alert("Xóa giỏ hàng thành công!");
                 },
                 error: function () {
-                    alert("Lỗi trong khi thêm vào giỏ hàng!");
+                    alert("Lỗi trong khi xóa giỏ hàng!");
                 }
             });
             return false;
-        });
-    });
+    }
 </script>
 
 
@@ -92,6 +92,40 @@
                                             </td>
                                             <td>
                                                 <input type="number" id="ipQuantity-@item.Product.Id" onchange="UpdateCart(@item.Product.Id)" value="@item.Quantity" />
+                                                @*<script>
+                                                    var count = 1;
+                                                    $("#button-plus").click(function () {
+                                                        if ($("#ipQuantity-@item.Product.Id").val() >= 20) {
+                                                            $("#button-plus").attr("disabled", true);
+                                                        } else {
+                                                            count += 1;
+                                                            $("#ipQuantity-@item.Product.Id").val(count);
+                                                        }
+                                                    });
+                                                    $("#button-minus").click(function () {
+                                                        if ($("#ipQuantity-@item.Product.Id").val() <= 1) {
+                                                            $("#button-minus").attr("disabled", true);
+                                                        } else {
+                                                            count -= 1;
+                                                            $("#ipQuantity-@item.Product.Id").val(count);
+                                                        }
+                                                    });
+                                                    $("#ipQuantity").change(function () {
+                                                        if ($("#ipQuantity-@item.Product.Id").val() <= 1 || $("#ipQuantity-@item.Product.Id").val() >= 20) {
+                                                            alert("Nhập số lượng phù hợp !");
+                                                            $("#ipQuantity-@item.Product.Id").val("1");
+                                                        }
+                                                    })
+                                                </script>
+                                                <div class="input-group mb-3 input-spinner">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-light" type="button" id="button-plus"> + </button>
+                                                    </div>
+                                                    <input type="text" id="ipQuantity-@item.Product.Id" class="form-control" onchange="UpdateCart(@item.Product.Id)" value="@item.Quantity">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
+                                                    </div>
+                                                </div>*@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
@@ -103,7 +137,7 @@
                                                 <input type="hidden" value="@item.Product.Id" id="productid" />
                                                 <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
 
-                                                <a href="" class="btn btn-light" id="removecart"> Xóa</a>
+                                                <a class="btn btn-light btn-round" onclick="DeleteCart(@item.Product.Id)"> Xóa</a>
                                             </td>
                                         </tr>
                                     }

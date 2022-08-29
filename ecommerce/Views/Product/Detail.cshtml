@@ -30,6 +30,29 @@
             });
             return false;
         });
+        var count = 1;
+        $("#button-plus").click(function () {
+            if ($("#ipQuantity").val() >= 20) {
+                $("#button-plus").attr("disabled", true);
+            } else {
+                count += 1;
+                $("#ipQuantity").val(count);
+            }
+        });
+        $("#button-minus").click(function () {
+            if ($("#ipQuantity").val() <= 1) {
+                $("#button-minus").attr("disabled", true);
+            } else {
+                count -= 1;
+                $("#ipQuantity").val(count);
+            }
+        });
+        $("#ipQuantity").change(function () {
+            if ($("#ipQuantity").val() <= 1 || $("#ipQuantity").val() >= 20) {
+                alert("Nhập số lượng phù hợp !");
+                $("#ipQuantity").val("1");
+            }
+        })
     });
 </script>
 
@@ -103,13 +126,13 @@
                     <div class="form-row  mt-4">
                         <div class="form-group col-md flex-grow-0">
                             <div class="input-group mb-3 input-spinner">
-                                <select class="form-control" id="ipQuantity" value="1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-light" type="button" id="button-plus"> + </button>
+                                </div>
+                                <input type="text" id="ipQuantity" class="form-control" value="1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
+                                </div>
                             </div>
                         </div> <!-- col.// -->
                         <div class="form-group col-md">
