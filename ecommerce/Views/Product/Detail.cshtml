@@ -36,8 +36,8 @@
 <section class="py-3 bg-light">
     <div class="container">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="#">chi tiết sản phẩm</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("ProductCategory", "Category")/@Model.CategoryId">chi tiết sản phẩm</a></li>
             <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
         </ol>
     </div>
@@ -78,28 +78,27 @@
                                 <i class="fa fa-star"></i>
                             </li>
                         </ul>
-                        <small class="label-rating text-muted">132 reviews</small>
-                        <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+                        <small class="label-rating text-muted">132 đánh giá</small>
+                        <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 lượt đặt hàng </small>
                     </div> <!-- rating-wrap.// -->
                     <div class="mb-3">
-                        <var class="price h4">@Model.Price</var>
-                        <span class="text-muted">USD 562.65 incl. VAT</span>
+                        <span class="h5 price text-muted" style="text-decoration: line-through;">@Convert.ToDecimal(Model.Price).ToString("#,##") đ</span>
+                        <span class="h4 price">@Convert.ToDecimal(Model.PriceDiscount).ToString("#,##") đ</span>
                     </div> <!-- price-detail-wrap .// -->
                     <p>
                         @Model.ShortDes
                     </p>
-
                     <dl class="row">
-                        <dt class="col-sm-3">Manufacturer</dt>
-                        <dd class="col-sm-9"><a href="#">Great textile Ltd.</a></dd>
-                        <dt class="col-sm-3">Article number</dt>
-                        <dd class="col-sm-9">596 065</dd>
-                        <dt class="col-sm-3">Guarantee</dt>
-                        <dd class="col-sm-9">2 year</dd>
-                        <dt class="col-sm-3">Delivery time</dt>
-                        <dd class="col-sm-9">3-4 days</dd>
-                        <dt class="col-sm-3">Availabilty</dt>
-                        <dd class="col-sm-9">in Stock</dd>
+                        <dt class="col-sm-3">Thương hiệu</dt>
+                        <dd class="col-sm-9"><a href="@Url.Action("ProductBrand", "Brand", new {Id = Model.BrandId})">@Model.BrandId</a></dd>
+                        <dt class="col-sm-3">Sản xuất tại</dt>
+                        <dd class="col-sm-9">Việt Nam</dd>
+                        <dt class="col-sm-3">Bảo hành</dt>
+                        <dd class="col-sm-9">18 tháng</dd>
+                        <dt class="col-sm-3">Thời gian giao hàng</dt>
+                        <dd class="col-sm-9">2-3 ngày</dd>
+                        <dt class="col-sm-3">Tình trạng</dt>
+                        <dd class="col-sm-9">Còn hàng</dd>
                     </dl>
                     <div class="form-row  mt-4">
                         <div class="form-group col-md flex-grow-0">
@@ -132,44 +131,34 @@
 <section class="section-name padding-y bg">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <h5 class="title-description">Description</h5>
+            <div style="text-align: center" class="col-md-8">
+                <h5 style="text-align:center" class="title-description">ĐẶC ĐIỂM NỔI BẬT</h5>
                 @Model.FullDescription
             </div> <!-- col.// -->
 
             <aside class="col-md-4">
                 <div class="box">
 
-                    <h5 class="title-description">Files</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <h5 class="title-description">Videos</h5>
-
+                    <h5 class="title-description">Các Video về sản phẩm này</h5>
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/@Model.Avartar"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">How to use this item</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">Trên tay iphone 13 pro</a></h6>
+                            <p class="mb-2"> Cụm camera được nâng cấp, màu sắc mới, đặc biệt là màn hình 120Hz với phần notch được làm nhỏ gọn hơn chính là những điểm làm cho thu hút mọi sự chú ý trong năm nay. </p>
                         </div>
                     </article>
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/2.jpg"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">Đánh giá chi tiết iphone 13 pro sau 2 tuần</a></h6>
+                            <p class="mb-2"> Hiệu năng iPhone 13 Pro vẫn đứng hàng đầu trong thế giới smartphone · Màn hình: Kích thước 6.1 inch, độ phân giải 2.532 x 1.170 pixel, tấm nền Super Retina XDR </p>
                         </div>
                     </article>
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/1.jpg"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">drop test iphone 13 pro</a></h6>
+                            <p class="mb-2"> Đối với iPhone 13 Pro, chiếc điện thoại này không chỉ va vào lan can không chỉ một mà tới ba lần. Điều gây ngạc nhiên là mặt kính phía sau của iPhone đã bị nứt nhưng mặt trước không bị hề hấn gì.  </p>
                         </div>
                     </article>
 
@@ -180,24 +169,3 @@
     </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="padding-y-lg bg-light border-top">
-    <div class="container">
-        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
-        <div class="row justify-content-md-center">
-            <div class="col-lg-4 col-sm-6">
-                <form class="form-row">
-                    <div class="col-8">
-                        <input class="form-control" placeholder="Your Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text">We’ll never share your email address with a third-party. </small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-    </div>
-</section>
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

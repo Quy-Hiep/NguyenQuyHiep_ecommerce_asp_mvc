@@ -15,21 +15,12 @@
                         <nav class="nav-home-aside">
                             <h6 class="title-category">DANH MỤC CỦA BẠN <i class="d-md-none icon fa fa-chevron-down"></i></h6>
                             <ul class="menu-category">
-                                @foreach (var item in Model.ListCategory.Take(6))
+                                @foreach (var item in Model.ListCategory.Take(7))
                                 {
                                     <li><a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})">@item.Name</a></li>
                                 }
 
 
-
-                                <li class="has-submenu">
-                                    <a href="#">More items</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Submenu name</a></li>
-                                        <li><a href="#">Great submenu</a></li>
-                                        <li><a href="#">Another menu</a></li>
-                                        <li><a href="#">Some others</a></li>
-                                    </ul>
                                 </li>
                                 <li><a href="https://localhost:44338/Category/Index">Tất cả danh mục</a></li>
                             </ul>
@@ -79,7 +70,7 @@
                                 <div class="card-banner border-bottom">
                                     <div class="py-3" style="width:80%">
                                         <h6 class="card-title">@item.Name</h6>
-                                        <a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})" class="btn btn-secondary btn-sm"> Source now </a>
+                                        <a href="@Url.Action("ProductCategory", "Category", new {Id = item.Id})" class="btn btn-secondary btn-sm"> Xem ngay </a>
                                     </div>
                                     <img src="~/Content/images/items/@item.Avartar" height="80" class="img-bg">
                                 </div>
@@ -123,6 +114,9 @@
                             </a>
                             <div class="text-wrap p-3">
                                 <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="title">@item.Name</a>
+                                <span class="h6 price text-muted" style="text-decoration: line-through;">@Convert.ToDecimal(item.Price).ToString("#,##") đ</span>
+                                <br />
+                                <span class="h6 price">@Convert.ToDecimal(item.PriceDiscount).ToString("#,##") đ</span>
                                 <span class="badge badge-danger"> -20% </span>
                             </div>
                         </figure>
@@ -146,8 +140,7 @@
                 <div class="col-md-3">
 
                     <div class="home-category-banner bg-light-orange">
-                        <h5 class="title">Best trending clothes only for summer</h5>
-                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <h5 class="title">Điện thoại cấu hình cao với giá tốt nhất thị trường</h5>
                         <a href="@Url.Action("ProductCategory", "Category")/1" class="btn btn-outline-primary rounded-pill">Xem tất cả điện thoại</a>
                         <img src="~/Content/images/items/phone.jpg" class="img-bg">
                     </div>
@@ -160,9 +153,12 @@
                             <li class="col-6 col-lg-3 col-md-4">
                                 <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="item">
                                     <div class="card-body">
-                                        <h6 class="title">@item.Name </h6>
+                                        <span class="title">@item.Name </span>
+                                        <br />
+                                        <span class="small price text-muted" style="text-decoration: line-through;">@Convert.ToDecimal(item.Price).ToString("#,##") đ</span>
+                                        <span class="h7 price">@Convert.ToDecimal(item.PriceDiscount).ToString("#,##") đ</span>
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avartar">
-                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Well made women clothes with trending collection </p>
+                                        <p class="text-muted"> @item.ShortDes </p>
                                     </div>
                                 </a>
                             </li>
@@ -186,10 +182,10 @@
                 <div class="col-md-3">
 
                     <div class="home-category-banner bg-light-orange">
-                        <h5 class="title">Best trending clothes only for summer</h5>
-                        <p>Consectetur adipisicing elit </p>
-                        <a href="@Url.Action("ProductCategory", "Category")/2" class="btn btn-outline-primary rounded-pill">Xem tất cả laptop</a>
+                        <h5 class="title">Laptop giá tốt với nhiều ưu đãi</h5>
                         <img src="~/Content/images/items/laptop.jpg" class="img-bg">
+                        <a href="@Url.Action("ProductCategory", "Category")/2" class="btn btn-outline-primary rounded-pill">Xem tất cả laptop</a>
+
                     </div>
 
                 </div> <!-- col.// -->
@@ -200,9 +196,12 @@
                             <li class="col-6 col-lg-3 col-md-4">
                                 <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="item">
                                     <div class="card-body">
-                                        <h6 class="title">@item.Name </h6>
+                                        <span class="title">@item.Name </span>
+                                        <br />
+                                        <span class="small price text-muted" style="text-decoration: line-through;">@Convert.ToDecimal(item.Price).ToString("#,##") đ</span>
+                                        <span class="h7 price">@Convert.ToDecimal(item.PriceDiscount).ToString("#,##") đ</span>
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avartar">
-                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Well made women clothes with trending collection </p>
+                                        <p class="text-muted"> @item.ShortDes </p>
                                     </div>
                                 </a>
                             </li>
@@ -224,8 +223,7 @@
                 <div class="col-md-3">
 
                     <div class="home-category-banner bg-light-orange">
-                        <h5 class="title">Best trending clothes only for summer</h5>
-                        <p>Consectetur adipisicing elit </p>
+                        <h5 class="title">Sự lựa chọn tốt nhất cho giải trí</h5>
                         <a href="@Url.Action("ProductCategory", "Category")/3" class="btn btn-outline-primary rounded-pill">Xem tất cả Tablet</a>
                         <img src="~/Content/images/items/tablet.jpg" class="img-bg">
                     </div>
@@ -238,9 +236,12 @@
                             <li class="col-6 col-lg-3 col-md-4">
                                 <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="item">
                                     <div class="card-body">
-                                        <h6 class="title">@item.Name </h6>
+                                        <span class="title">@item.Name </span>
+                                        <br />
+                                        <span class="small price text-muted" style="text-decoration: line-through;">@Convert.ToDecimal(item.Price).ToString("#,##") đ</span>
+                                        <span class="h7 price">@Convert.ToDecimal(item.PriceDiscount).ToString("#,##") đ</span>
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avartar">
-                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Well made women clothes with trending collection </p>
+                                        <p class="text-muted"> @item.ShortDes </p>
                                     </div>
                                 </a>
                             </li>
@@ -327,10 +328,10 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                     <div class="card card-sm card-product-grid">
                         <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="img-wrap"> <img src="~/Content/images/items/@item.Avartar"> </a>
-                        <figcaption class="info-wrap">
-                            <a href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="title">@item.Name</a>
-                            <div class="price mt-1">@item.Price đ </div> <!-- price-wrap.// -->
-
+                        <figcaption class="info-wrap" >
+                            <a style="text-align: center;" href="@Url.Action("Detail", "Product", new {Id = item.Id})" class="title">@item.Name</a>
+                            <span style="display: flex; justify-content: center; text-decoration: line-through; " class="h6 price text-muted">@Convert.ToDecimal(item.Price).ToString("#,##") đ</span>
+                            <span style="display: flex; justify-content: center;" class="h6 price">@Convert.ToDecimal(item.PriceDiscount).ToString("#,##") đ</span>
                         </figcaption>
 
                     </div>
@@ -341,104 +342,10 @@
 
         </div> <!-- row.// -->
     </section>
-    <!-- =============== SECTION ITEMS .//END =============== -->
-    <!-- =============== SECTION SERVICES =============== -->
-    <section class="padding-bottom">
-
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Trade services</h4>
-        </header>
-
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Trade Assurance</h6>
-                        <p class="small text-uppercase text-muted">Order protection</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/2.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Pay anytime</h6>
-                        <p class="small text-uppercase text-muted">Finance solution</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/3.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Inspection solution</h6>
-                        <p class="small text-uppercase text-muted">Easy Inspection</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/4.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Ocean and Air Shipping</h6>
-                        <p class="small text-uppercase text-muted">Logistic services</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-        </div> <!-- row.// -->
-
-    </section>
-    <!-- =============== SECTION SERVICES .//END =============== -->
-    <!-- =============== SECTION REGION =============== -->
-    <section class="padding-bottom">
-
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Choose region</h4>
-        </header>
-
-        <ul class="row mt-4">
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/CN.png"> <span>China</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/DE.png"> <span>Germany</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/AU.png"> <span>Australia</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/RU.png"> <span>Russia</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/IN.png"> <span>India</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/GB.png"> <span>England</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/TR.png"> <span>Turkey</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/UZ.png"> <span>Uzbekistan</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <i class="mr-3 fa fa-ellipsis-h"></i> <span>More regions</span> </a></li>
-        </ul>
-    </section>
-    <!-- =============== SECTION REGION .//END =============== -->
+    
 
     <article class="my-4">
         <img src="~/Content/images/banners/ad-sm.png" class="w-100">
     </article>
 </div>
 <!-- container end.// -->
-<!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="section-subscribe padding-y-lg">
-    <div class="container">
-
-        <p class="pb-2 text-center text-white">Delivering the latest product trends and industry news straight to your inbox</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-5 col-md-6">
-                <form class="form-row">
-                    <div class="col-md-8 col-7">
-                        <input class="form-control border-0" placeholder="Your Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-md-4 col-5">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text text-white-50">We’ll never share your email address with a third-party. </small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
-
-
-<!-- ========================= SECTION SUBSCRIBE END// ========================= -->

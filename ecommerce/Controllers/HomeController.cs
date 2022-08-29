@@ -92,6 +92,7 @@ namespace ecommerce.Controllers
                     Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
                     Session["Email"] = data.FirstOrDefault().Email;
                     Session["idUser"] = data.FirstOrDefault().Id;
+                    Session["idAdmin"] = data.FirstOrDefault().IsAdmin;
                     return RedirectToAction("Index");
                 }
                 else
@@ -114,6 +115,9 @@ namespace ecommerce.Controllers
         public ActionResult Search(string currentFilter, string SearchString, int? page)
         {
             var lstProduct = new List<Product>();
+            var ListCategory = objecomerce_Asp_MvcEntities.Categories.ToList();
+            var ListBrand = objecomerce_Asp_MvcEntities.Brands.ToList();
+            var count = 0;//dùng để đếm tổng số sản phẩm
             if (SearchString != null)
             {
                 page = 1;
@@ -132,7 +136,15 @@ namespace ecommerce.Controllers
                 //lấy all sản phẩm trong bảng product
                 lstProduct = objecomerce_Asp_MvcEntities.Products/*.Where(n => n.Deleted == false)*/.ToList();
             }
+            //vòng lặp đếm tổng số sản phẩm kiếm được
+            foreach (var item in lstProduct)
+            {
+                count += 1;
+            }
+            ViewBag.Count = count;
             ViewBag.CurrentFilter = SearchString;
+            ViewBag.Category = ListCategory;
+            ViewBag.Brand = ListBrand;
             //số lượng item cua 1 trang
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -148,14 +160,14 @@ namespace ecommerce.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Về chúng tôi.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Cộng tác với chúng tôi.";
 
             return View();
         }
