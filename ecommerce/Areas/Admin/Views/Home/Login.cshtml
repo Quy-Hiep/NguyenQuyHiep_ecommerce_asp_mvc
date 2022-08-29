@@ -14,8 +14,6 @@
             @using (Html.BeginForm("Login", "Home", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                <a href="#" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp  Đăng nhập với Facebook</a>
-                <a href="#" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp  Đăng nhập với Google</a>
                 <div class="form-group">
                     <input name="Email" id="Email" class="form-control" placeholder="Email" type="text">
                     @*@Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })*@
