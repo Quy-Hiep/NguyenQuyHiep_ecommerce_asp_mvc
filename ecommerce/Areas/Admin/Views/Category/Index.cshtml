@@ -34,7 +34,7 @@
                                 <button class="btn btn-success" style="margin-bottom: 10px; margin-top: 10px; margin-right:3px;">
                                     <a href=" @Url.Action("Create")" style="color: #fff;"><i class="fas fa-plus"></i>&nbsp; Thêm</a>
                                 </button>
-                                <button class="btn btn-danger" style="margin-bottom: 10px; margin-top: 10px;">
+                                <button class="btn btn-warning" style="margin-bottom: 10px; margin-top: 10px;">
                                     <a href=" @Url.Action("Trash")" style="color: #fff;"><i class="far fa-trash-alt"></i> &nbsp;Thùng rác</a>
                                 </button>
                             </div>
@@ -69,13 +69,13 @@
                                                 @Html.DisplayFor(modelItem => item.Slug)
                                             </td>
                                             <td>
-                                                <button class="btn btn-warning" style="width: 42px;">
+                                                <button class="btn btn-success" style="width: 42px;">
                                                     <a href=" @Url.Action("Edit", new { id = item.Id })" style="color: #fff;"><i class="far fa-edit"></i></a>
                                                 </button>
-                                                <button class="btn btn-info" style="width: 42px;">
+                                                <button class="btn btn-success" style="width: 42px; color: #3CCF4E;">
                                                     <a href=" @Url.Action("Details", new { id = item.Id })" style="color: #fff;"><i class="fas fa-info-circle"></i></a>
                                                 </button>
-                                                <button class="btn btn-danger" style="width: 42px;">
+                                                <button class="btn btn-warning" style="width: 42px;">
                                                     <a href=" @Url.Action("DeleteTrash", new { id = item.Id })" style="color: #fff;"><i class="far fa-trash-alt"></i></a>
                                                 </button>
                                             </td>

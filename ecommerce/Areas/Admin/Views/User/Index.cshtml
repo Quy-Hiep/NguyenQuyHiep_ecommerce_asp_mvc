@@ -71,14 +71,14 @@
                                             @Html.DisplayFor(modelItem => item.IsAdmin)
                                         </td>
                                         <td>
-                                            <button class="btn btn-warning" style="width: 42px;">
+                                            <button class="btn btn-success" style="width: 42px;">
                                                 <a href=" @Url.Action("Edit", new { id = item.Id })" style="color: #fff;"><i class="far fa-edit"></i></a>
                                             </button>
-                                            <button class="btn btn-info" style="width: 42px;">
+                                            <button class="btn btn-success" style="width: 42px; color: #3CCF4E;">
                                                 <a href=" @Url.Action("Details", new { id = item.Id })" style="color: #fff;"><i class="fas fa-info-circle"></i></a>
                                             </button>
-                                            <button class="btn btn-danger" style="width: 42px;">
-                                                <a href=" @Url.Action("Delete", new { id = item.Id })" style="color: #fff;"><i class="far fa-trash-alt"></i></a>
+                                            <button class="btn btn-warning" style="width: 42px;">
+                                                <a href=" @Url.Action("DeleteTrash", new { id = item.Id })" style="color: #fff;"><i class="far fa-trash-alt"></i></a>
                                             </button>
                                         </td>
                                     </tr>
